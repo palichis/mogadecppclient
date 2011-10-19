@@ -1,0 +1,21 @@
+﻿Mogade para CPP 
+
+Mogade es un servicio gratuito basado en web que permite a los desarrolladores de juegos enganchar rápidamente sus juegos con funciones auxiliares (tales como tablas de clasificación).
+Esta es una biblioteca para CPP -. Que tiene por objeto no sólo para ser utilizado dentro de los juegos, sino también para servir de base para las implementaciones de la plataforma específica. 
+
+
+USO
+El uso de la librería es  facil, solose necesita incluir las librerias que se desen y sealizar el llamado de las funciones.
+
+Función para escribir los puntajes
+set_score("LID","name","namekey","key","secret","puntos", "data");
+
+Función para obtener puntajes
+std::string = get_scores("LID","SCOPE")
+
+Función para transformar puntaje a objeto json
+json_object = get_json(std::string)
+
+
+Nota
+Para ver ejemplo de uso puede revisar el archivo test.cpp
