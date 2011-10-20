@@ -2,9 +2,9 @@
 ##############################################################################
 #
 # Copyright (c) 20011-2011 
-Paul Ochoa "palichis". (http://solid-ec.org) 
-Diego Abad "perilla"
-All Rights Reserved.
+#Paul Ochoa "palichis". (http://solid-ec.org) 
+#Diego Abad "perilla"
+#All Rights Reserved.
 #                    General contacts <palichis@solid-ec.org>
 #
 # WARNING: This program as such is intended to be used by professional
@@ -56,12 +56,12 @@ int main() {
   //jscore = json_object_object_get(jscore, );
   res = json_object_to_json_string(jscore);
   //json_object_put(jscore);
-  for (int i = 0;i<3;i++)
+  for (int i = 0;i<json_object_array_length(jscore);i++)
     {
       jarray = json_object_array_get_idx(jscore, i);
       printf("\n\n()=1%s\n", json_object_to_json_string(jarray));
     }
-  printf("\nne%s\n", cpy);
+
   
   
   //jscore = json_object_object_get(jscore, "username");

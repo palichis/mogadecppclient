@@ -1,21 +1,92 @@
-﻿Mogade para CPP 
+﻿################
+#Mogade for CPP#
+################
+
+*******
+Español
+Mogade para CPP 
 
 Mogade es un servicio gratuito basado en web que permite a los desarrolladores de juegos enganchar rápidamente sus juegos con funciones auxiliares (tales como tablas de clasificación).
 Esta es una biblioteca para CPP -. Que tiene por objeto no sólo para ser utilizado dentro de los juegos, sino también para servir de base para las implementaciones de la plataforma específica. 
 
-
+***************************************************************************************************************************
 USO
-El uso de la librería es  facil, solose necesita incluir las librerias que se desen y sealizar el llamado de las funciones.
+El uso de la librería es facil, solo se necesita incluir las librerias que se deseen y realizar el llamado de las funciones.
 
-Función para escribir los puntajes
-set_score("LID","name","namekey","key","secret","puntos", "data");
+**********************************************************
+Función para escribir los puntajes en nuestro leaderboards
+/*
+  lid = id of leaderboards
+  username = nick of gamer
+  userkey = player identification device
+  points = points of gamer
+  key = id of game
+  secret = secret of game on mogade
+  data = data of user, define a level, dificulty etc....
+*/
 
-Función para obtener puntajes
+set_score("LID","name","namekey","key","secret","points", "data");
+
+*******************************************************
+Función para obtener puntajes de nuestro leaderboards
+/*
+  lid = id of leaderboards
+  scope = (daily (1), weekly (2), overall (3) or yesterday (4))
+*/
 std::string = get_scores("LID","SCOPE")
 
-Función para transformar puntaje a objeto json
+************************************************************************
+Función para transformar puntaje obtenido de get_scores() a objeto json
 json_object = get_json(std::string)
 
-
+***********************************************************
 Nota
-Para ver ejemplo de uso puede revisar el archivo test.cpp
+Para ver ejemplo de uso puede revisar el archivo test.cpp.
+
+Puede ejecutar "./game" desde una consola de linux, para ver los resultados.
+
+
+
+*******
+English
+Mogade is a free service web-based service which allows game developers to quickly enchance their games with auxiliary functionality (such as leaderboards).
+
+This is the official .NET library – which is meant not only to be used within games, but also to serve as the basis for platform specific implementations.
+
+****************************************************************************************************************
+USE
+The use of the library is easy, you just need to include libraries as desired and make the call of the functions.
+
+**************************************************
+Function to write the scores on our leaderboards
+/*
+  lid = id of leaderboards
+  username = nick of gamer
+  userkey = player identification device
+  points = points of gamer
+  key = id of game
+  secret = secret of game on mogade
+  data = data of user, define a level, dificulty etc....
+*/
+
+set_score("LID","name","namekey","key","secret","points", "data");
+
+*******************************************
+Function to get scores for our leaderboards
+/*
+  lid = id of leaderboards
+  scope = (daily (1), weekly (2), overall (3) or yesterday (4))
+*/
+std::string = get_scores("LID","SCOPE")
+
+****************************************************************
+Function to convert score obtained from get_score to json object
+json_object = get_json(std::string)
+
+******************************************************************
+note
+To see example of use can review the file test.cpp.
+
+You can run ". / Game" from a linux console to see the results.
+
+

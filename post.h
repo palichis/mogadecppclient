@@ -2,9 +2,9 @@
 ##############################################################################
 #
 # Copyright (c) 20011-2011 
-Paul Ochoa "palichis". (http://solid-ec.org) 
-Diego Abad “perilla” 
-All Rights Reserved.
+#Paul Ochoa "palichis". (http://solid-ec.org) 
+#Diego Abad “perilla” 
+#All Rights Reserved.
 #                    General contacts <palichis@solid-ec.org>
 #
 # WARNING: This program as such is intended to be used by professional

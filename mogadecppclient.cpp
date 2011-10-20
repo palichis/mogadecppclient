@@ -2,9 +2,9 @@
 ##############################################################################
 #
 # Copyright (c) 20011-2011 
-Paul Ochoa "palichis". (http://solid-ec.org) 
-Diego Abad "perilla"
-All Rights Reserved.
+#Paul Ochoa "palichis". (http://solid-ec.org) 
+#Diego Abad "perilla"
+#All Rights Reserved.
 #                    General contacts <palichis@solid-ec.org>
 #
 # WARNING: This program as such is intended to be used by professional
@@ -33,7 +33,7 @@ All Rights Reserved.
 #include "post.h"
 #include "get.h"
 #include "js0n.h"
-#include "encode/base64.h"
+#include "encode/urlencode.h"
 
 #include <curl/curl.h>
 #include <iostream>
@@ -126,7 +126,7 @@ void set_score(std::string lid, std::string username, std::string userkey, std::
   CURL *curl;
   CURLcode res;
   curl = curl_easy_init();
-  if(curl)
+if(curl)
     {
       std::string str_post;
       std::string str_convert;
