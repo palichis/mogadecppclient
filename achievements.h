@@ -3,7 +3,7 @@
 #
 # Copyright (c) 20011-2011 
 #Paul Ochoa "palichis". (http://solid-ec.org) 
-#Diego Abad “perilla” 
+#Diego Abad "perilla" 
 #All Rights Reserved.
 #                    General contacts <palichis@solid-ec.org>
 #
@@ -31,4 +31,5 @@
 ##############################################################################
 */
 #include <string>
-std::string set_score(std::string,std::string,std::string,std::string,std::string,std::string,std::string);
+void set_achievements(std::string username, std::string userkey, std::string key, std::string aid, std::string secret );
+

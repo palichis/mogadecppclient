@@ -64,6 +64,7 @@ std::string get_scores(const std::string lid,const std::string scope)
   if (curl_handle)
     {  
       std::string buffer;
+      buffer = "1";
       std::string url;
       char *buffer1;
       url = "http://api2.mogade.com/api/gamma/scores?lid=" + lid +"&scope=" + scope;
@@ -121,7 +122,7 @@ char *convert(std::string text){
   data = data of user, define a level, dificulty etc....
 */
 
-void set_score(std::string lid, std::string username, std::string userkey, std::string key, std::string secret, std::string points, std::string data ) 
+std::string set_score(std::string lid, std::string username, std::string userkey, std::string key, std::string secret, std::string points, std::string data ) 
 {
   CURL *curl;
   CURLcode res;
@@ -132,7 +133,26 @@ if(curl)
       std::string str_convert;
       char *str_sig;
       char* url_post;
-      str_post = "lid="+lid+"&username="+username+"&userkey="+userkey+"&points="+points+"&data="+data+"&key="+key+"&sig=";
+      char* enusername;
+      char* enuserkey;
+      char* endata;
+      std::string buffer;
+      buffer = "1";
+      endata = new char[data.length() + 1];
+      strcpy(endata, data.c_str());
+      endata = url_encode(endata);
+
+
+      enuserkey = new char[userkey.length() + 1];
+      strcpy(enuserkey, userkey.c_str());
+      enuserkey = url_encode(enuserkey);
+
+      enusername = new char[username.length() + 1];
+      strcpy(enusername, username.c_str());
+      enusername = url_encode(enusername);
+
+      printf("\n\n\n%s\n\n\n%s\n\n\n",enusername,endata);
+      str_post = "lid="+lid+"&username="+enusername+"&userkey="+enuserkey+"&points="+points+"&data="+endata+"&key="+key+"&sig=";
       url_post = new char[str_post.length() + 1];
       strcpy(url_post, str_post.c_str());
       str_convert = "data|"+data+"|key|"+key+"|lid|"+lid+"|points|"+points+"|userkey|"+userkey+"|username|"+username+"|"+secret;
@@ -141,7 +161,10 @@ if(curl)
       sprintf(url_sig, "%s%s", url_post, str_sig);
       curl_easy_setopt(curl, CURLOPT_URL, "http://api2.mogade.com/api/gamma/scores");
       curl_easy_setopt(curl, CURLOPT_POSTFIELDS,url_sig);
+      curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writer);
+      curl_easy_setopt(curl, CURLOPT_WRITEDATA, &buffer );
       res = curl_easy_perform(curl);
       curl_easy_cleanup(curl);
+      return buffer;
     }
 }

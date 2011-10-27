@@ -87,6 +87,6 @@ json_object = get_json(std::string)
 note
 To see example of use can review the file test.cpp.
 
-You can run ". / Game" from a linux console to see the results.
+You can run "./game" from a linux console to see the results.
 
 

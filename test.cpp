@@ -33,6 +33,7 @@
 #include "get.h"
 #include "js0n.h"
 #include "post.h"
+#include "achievements.h"
 
 
 #include <iostream>
@@ -45,13 +46,15 @@ struct json_object *jarray;
 char const* res;
 char* cpy;
 int main() {
-  set_score("4e8f2bff8fcd52780600003d","pali=","60:eb:69:44:72:95","4e8dfba96d57483cad000020","T@qDfDlUCAVMZHyYEPo3pM@]J","18", "10");
+  val = set_score("4e8f2bff8fcd52780600003d","p@l! <#!5","60:eb:69:44:72:95","4e8dfba96d57483cad000020","T@qDfDlUCAVMZHyYEPo3pM@]J","1811", "{'nivel':1,'dificultad':'easy'}");
+  std::cout << "SET: " << val << std::endl;
   //std::string = get_scores("LID","SCOPE")
   val = get_scores("4e8f2bff8fcd52780600003d","3");
+  std::cout << "get " << val << std::endl;
   //json_object = get_json(std::string)
   jscore = get_json(val);
-  printf("\nnew_obj.to_string()=1%s\n", json_object_to_json_string(jscore));
-  jscore = json_object_object_get(jscore, "scores");
+  //printf("\nnew_obj.to_string()=1%s\n", json_object_to_json_string(jscore));
+  /*jscore = json_object_object_get(jscore, "scores");
   //jscore = json_object_array_get_idx(jscore, i);
   //jscore = json_object_object_get(jscore, );
   res = json_object_to_json_string(jscore);
@@ -60,28 +63,7 @@ int main() {
     {
       jarray = json_object_array_get_idx(jscore, i);
       printf("\n\n()=1%s\n", json_object_to_json_string(jarray));
-    }
-
-  
-  
-  //jscore = json_object_object_get(jscore, "username");
-  
-  //printf("new_obj.to_string()=2%s\n", json_object_to_json_string(jscore));
-  //json_object_put(jscore);
-  //tds::string = set_score("lid","username","userkey","key","secret","points", "data")
-
-  //res = set_score(reinterpret_cast<const unsigned char*>("lid"));
-
-
-  /*
-  const std::string s = "íó" ;
-
-  std::string encoded = base64_encode(reinterpret_cast<const unsigned char*>(s.c_str()), s.length());
-  std::string decoded = base64_decode(encoded);
-
-
-  std::cout << "decoded: " << decoded << std::endl;
-
-  return 0;*/
+      }*/
+  // set_achievements("pali=", "60:eb:69:44:72:95", "4e8dfba96d57483cad000020", "4ea043d66d57487a660000ae", "T@qDfDlUCAVMZHyYEPo3pM@]J") ;
 }
 
