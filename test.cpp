@@ -50,20 +50,17 @@ int main() {
   std::cout << "SET: " << val << std::endl;
   //std::string = get_scores("LID","SCOPE")
   val = get_scores("4e8f2bff8fcd52780600003d","3");
-  std::cout << "get " << val << std::endl;
-  //json_object = get_json(std::string)
-  jscore = get_json(val);
-  //printf("\nnew_obj.to_string()=1%s\n", json_object_to_json_string(jscore));
-  /*jscore = json_object_object_get(jscore, "scores");
-  //jscore = json_object_array_get_idx(jscore, i);
-  //jscore = json_object_object_get(jscore, );
-  res = json_object_to_json_string(jscore);
-  //json_object_put(jscore);
-  for (int i = 0;i<json_object_array_length(jscore);i++)
+  std::cout << "GET: " << val << std::endl;
+  if(val != "1")
     {
-      jarray = json_object_array_get_idx(jscore, i);
-      printf("\n\n()=1%s\n", json_object_to_json_string(jarray));
-      }*/
-  // set_achievements("pali=", "60:eb:69:44:72:95", "4e8dfba96d57483cad000020", "4ea043d66d57487a660000ae", "T@qDfDlUCAVMZHyYEPo3pM@]J") ;
+      jscore = get_json(val);
+      printf("\nnew_obj.to_string()=1%s\n", json_object_to_json_string(jscore));
+      jscore = json_object_object_get(jscore, "scores");
+      for (int i = 0;i<json_object_array_length(jscore);i++)
+	{
+	  jarray = json_object_array_get_idx(jscore, i);
+	  printf("\n\n()=1%s\n", json_object_to_json_string(jarray));
+	}
+    }
 }
 

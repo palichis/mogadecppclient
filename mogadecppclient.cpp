@@ -38,7 +38,7 @@
 #include <curl/curl.h>
 #include <iostream>
 #include <cstring>
-#include "json.h"
+#include "json/json.h"
 #include <gcrypt.h>
 
 
@@ -64,7 +64,6 @@ std::string get_scores(const std::string lid,const std::string scope)
   if (curl_handle)
     {  
       std::string buffer;
-      buffer = "1";
       std::string url;
       char *buffer1;
       url = "http://api2.mogade.com/api/gamma/scores?lid=" + lid +"&scope=" + scope;
@@ -74,7 +73,10 @@ std::string get_scores(const std::string lid,const std::string scope)
       curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &buffer );
       res = curl_easy_perform(curl_handle);
       curl_easy_cleanup(curl_handle);
-      return buffer;
+      if(buffer.length() != 0)
+	return buffer;
+      else
+	return "1";
    } 
 }
 
@@ -137,7 +139,6 @@ if(curl)
       char* enuserkey;
       char* endata;
       std::string buffer;
-      buffer = "1";
       endata = new char[data.length() + 1];
       strcpy(endata, data.c_str());
       endata = url_encode(endata);
@@ -165,6 +166,10 @@ if(curl)
       curl_easy_setopt(curl, CURLOPT_WRITEDATA, &buffer );
       res = curl_easy_perform(curl);
       curl_easy_cleanup(curl);
+      if(buffer.length() != 0)
+	return buffer;
+      else
+	return "1";
       return buffer;
     }
 }
